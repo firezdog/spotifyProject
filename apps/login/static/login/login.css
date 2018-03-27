@@ -2,11 +2,10 @@
     width: 200px;
 }
 
-body {
-    width: 422px;
-    margin: 0 auto
+.column {
+    max-width: 450px;
+    
 }
-
 input::placeholder {
     /* override Semantic UI */
     color: grey !important
