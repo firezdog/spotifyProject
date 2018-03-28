@@ -11,12 +11,21 @@ def index(request):
         'Username': user
     }
     return render(request,"spotifyTemplate/index.html",context)
+
 def user(request):
     user = User.objects.get(id=request.session['user'])
     context = {
         'User': user
     }
     return render(request,"spotifyTemplate/user.html",context)
+
 def logout(request):
     request.session.flush()
     return redirect('/')
+
+def showTrack(request, track_id):
+    print "track id:", track_id
+    context={
+        'track_id': track_id
+    }
+    return render(request, "spotifyTemplate/track.html", context)
