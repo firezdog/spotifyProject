@@ -9,7 +9,7 @@ $(document).ready(function(){
                     console.log(imageRes)
                     let htmlString = ""
                     htmlString+="<div class='column'>"
-                    htmlString+=`<div class='ui center aligned segment'><a href="/spotify/${item[i].id}"><img src=${imageRes.images[0].url}></a></div>`
+                    htmlString+=`<div class='ui center aligned segment'><a href="/spotify/tracks/${item[i].id}"><img src=${imageRes.images[0].url}></a></div>`
                     htmlString+="<div class='item'>Name: " + item[i]['name'] + '</div>'
                     htmlString+="<div class='item'>Album: " + item[i]['albumName'] + '</div>'
                     htmlString+="<div class='item'>Artist: " + item[i]['artistName'] + ' </div>'
