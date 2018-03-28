@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+    <link rel="Stylesheet" href="{% static 'spotifyStatic/user.css' %}">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User</title>
+</head>
+<body>
+    <div class="ui secondary  menu">
+        <a href="/spotify" class="active item">
+            <p>Home</p>
+        </a>
+        <a href="/spotify/user" class="item">
+            <p>{{User.name}}</p>
+        </a>
+        <img src="{% static 'logos/Spotify_Logo_RGB_Green.png' %}">
+        <div class="right menu">
+            <div class="item">
+            </div>
+            <a href="/spotify/logout" class="ui item">
+                <p>Logout</p>
+            </a>
+        </div>
+    </div>
+    <div id="profile">
+        <h1>{{User.name}}</h1>
+    </div>
+</body>
+</html>
