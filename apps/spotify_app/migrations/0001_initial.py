@@ -10,18 +10,17 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('login', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='User',
+            name='Songs',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.CharField(max_length=55)),
-                ('password', models.CharField(max_length=55)),
-                ('name', models.CharField(max_length=55)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
+                ('song', models.CharField(max_length=255, unique=True)),
+                ('liked_at', models.DateTimeField(auto_now_add=True)),
+                ('liked_others', models.ManyToManyField(related_name='otherlikedsongs', to='login.User')),
             ],
         ),
     ]
