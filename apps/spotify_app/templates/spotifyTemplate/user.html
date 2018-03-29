@@ -26,8 +26,21 @@
             </a>
         </div>
     </div>
-    <div id="profile">
-        <h1>{{User.name}}</h1>
+    <div id="profile"></div>
+    <div class="ui card">
+        <a class="image">
+          <img src="{% static 'logos/wayne.jpg' %}">
+        </a>
+        <div class="content">
+          <a class="header">{{User.name}}</a>
+          <div class="meta">
+            <a>Probably likes music</a>
+          </div>
+        </div>
+      </div>
+    <div id="likedsongs">
+      <h1>Added Songs</h1>
+      
     </div>
 </body>
 </html>
