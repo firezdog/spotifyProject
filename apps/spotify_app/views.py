@@ -25,7 +25,10 @@ def logout(request):
 
 def showTrack(request, track_id):
     print "track id:", track_id
+    user = User.objects.get(id=request.session['user'])
     context={
-        'track_id': track_id
+        'track_id': track_id,
+        'person' : user
+        
     }
     return render(request, "spotifyTemplate/track.html", context)

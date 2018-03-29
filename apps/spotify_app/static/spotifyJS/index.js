@@ -6,7 +6,6 @@ $(document).ready(function(){
             for(let i=0; i < res.tracks.length; i++){
                 var item = res.tracks            
                 $.get(`https://api.napster.com/v2.2/albums/${item[i]['albumId']}/images?apikey=${key}`).done(function(imageRes) {
-                    console.log(imageRes)
                     let htmlString = ""
                     htmlString+="<div class='column'>"
                     htmlString+=`<div class='ui center aligned segment'><a href="/spotify/tracks/${item[i].id}"><img src=${imageRes.images[0].url}></a></div>`
