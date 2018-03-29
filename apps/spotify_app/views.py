@@ -52,6 +52,4 @@ def likebutton(request, track_id):
         'Song': songs,
         'user': user
     }
-        return render(request, "spotifyTemplate/_like.html",context)
-    else:
-        return redirect('/spotify')
+    return render(request, "spotifyTemplate/_like.html",context)
