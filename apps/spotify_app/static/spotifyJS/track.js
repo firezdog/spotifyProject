@@ -1,4 +1,43 @@
 $(document).ready(function() {
+    var key = 'NjY4YzkwMWUtNGIzMS00ZGZmLWE2NGQtMTJhNWI5MTFhYzhk'
+    $('.ui.search').search({
+        type          : 'category',
+        minCharacters : 1,
+        apiSettings   : {
+            url        : `https://cors-anywhere.herokuapp.com/http://api.napster.com/v2.2/search?apikey=${key}&query={query}&type=track`,
+            onResponse : function(napsterResponse) {
+            var response = {
+                results : {}
+            };
+            
+            if(!napsterResponse || !napsterResponse.search.data.tracks) {
+                return;
+            }
+            $.each(napsterResponse.search.data.tracks, function(index, item) {
+                var
+                artist   = item.artistName || 'Unknown',
+                maxResults = 8
+                ;
+                if(index >= maxResults) {
+                return false;
+                }
+                // create new language category
+                if(response.results[artist] === undefined) {
+                response.results[artist] = {
+                    name    : artist,
+                    results : []
+                };
+                }
+                // add result to category
+                response.results[artist].results.push({
+                title       : item.name,
+                url         : '/spotify/tracks/' + item.id
+                });
+            });
+            return response;
+            }
+        }
+    });
     var track_id = $("data").val();
     var key = 'NjY4YzkwMWUtNGIzMS00ZGZmLWE2NGQtMTJhNWI5MTFhYzhk'
     $.get(`http://api.napster.com/v2.2/tracks/${track_id}?apikey=${key}`, function(track) {
