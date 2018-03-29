@@ -3,12 +3,15 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect, HttpResponse
 from ..login.models import User
+from .models import Songs
 # from .models import *
 # Create your views here.
 def index(request):
     user = User.objects.get(id=request.session['user'])
+    songs = Songs.objects.all()
     context = {
-        'Username': user
+        'Username': user,
+        'Song': songs
     }
     return render(request,"spotifyTemplate/index.html",context)
 
@@ -29,3 +32,25 @@ def showTrack(request, track_id):
         'track_id': track_id
     }
     return render(request, "spotifyTemplate/track.html", context)
+
+def likedsongs(request, track_id):
+    Song = track_id
+    users = User.objects.get(id = request.session['user'])
+    songs = Songs.objects.filter(song = track_id)
+    if len(songs) < 1:
+        Songs.objects.create(
+            song = Song
+        )
+    songs = Songs.objects.get(song = track_id)
+    songs.liked_others.add(users)
+    songs.save()
+    return redirect('/spotify')
+def likebutton(request):
+    if request.method == 'post':
+        songs = Songs.objects.all()
+        context = {
+            'Song': songs
+        }
+        return render(request, "spotifyTemplate/_like.html",context)
+    else:
+        return redirect('/spotify')
