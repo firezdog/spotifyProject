@@ -39,20 +39,16 @@ def showTrack(request, track_id):
 def likedsongs(request, track_id):
     Song = track_id
     users = User.objects.get(id = request.session['user'])
-    songs = Songs.objects.filter(song = track_id)
-    if len(songs) < 1:
-        Songs.objects.create(
-            song = Song
-        )
-    songs = Songs.objects.get(song = track_id)
-    songs.liked_others.add(users)
-    songs.save()
+    songs = Songs.objects.get_or_create(song = track_id)
+    songs[0].liked_others.add(users)
+    songs[0].save()
     return redirect('/spotify')
 def likebutton(request, track_id):
-    songs = Songs.objects.get(id = track_id)
+    songs = Songs.objects.get_or_create(song = track_id)
     user = User.objects.get(id = request.session['user'])
+    print songs
     context = {
-        'Song': songs,
+        'Song': songs[0],
         'user': user
     }
     return render(request, "spotifyTemplate/_like.html",context)
