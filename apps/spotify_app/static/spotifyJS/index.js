@@ -2,7 +2,6 @@ $(document).ready(function(){
     var song = $('data').val();
     var genres = ['g.21', 'g.5', 'g.394', 'g.156', 'g.146']
     var key = 'NjY4YzkwMWUtNGIzMS00ZGZmLWE2NGQtMTJhNWI5MTFhYzhk'
-
     $('.ui.search').search({
         type          : 'category',
         minCharacters : 1,
