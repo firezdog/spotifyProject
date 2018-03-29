@@ -2,7 +2,6 @@ $(document).ready(function(){
     var song = $('data').val();
     var genres = ['g.21', 'g.5', 'g.394', 'g.156', 'g.146']
     var key = 'NjY4YzkwMWUtNGIzMS00ZGZmLWE2NGQtMTJhNWI5MTFhYzhk'
-<<<<<<< HEAD
     $('.ui.search').search({
         type          : 'category',
         minCharacters : 1,
@@ -41,9 +40,6 @@ $(document).ready(function(){
             }
         }
     });
-=======
-    console.log(song)
->>>>>>> c903ca9682dfcb054889cc37207e0182e3b4846f
     for (let index=0; index<genres.length; index++) {
         $.get(`http://api.napster.com/v2.2/genres/${genres[index]}/tracks/top?apikey=${key}&limit=5`).done(function(res) {
             for(let i=0; i < res.tracks.length; i++){
