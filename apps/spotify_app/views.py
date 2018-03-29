@@ -28,8 +28,11 @@ def logout(request):
 
 def showTrack(request, track_id):
     print "track id:", track_id
+    user = User.objects.get(id=request.session['user'])
     context={
-        'track_id': track_id
+        'track_id': track_id,
+        'person' : user
+        
     }
     return render(request, "spotifyTemplate/track.html", context)
 
@@ -45,12 +48,11 @@ def likedsongs(request, track_id):
     songs.liked_others.add(users)
     songs.save()
     return redirect('/spotify')
-def likebutton(request):
-    if request.method == 'post':
-        songs = Songs.objects.all()
-        context = {
-            'Song': songs
-        }
-        return render(request, "spotifyTemplate/_like.html",context)
-    else:
-        return redirect('/spotify')
+def likebutton(request, track_id):
+    songs = Songs.objects.get(id = track_id)
+    user = User.objects.get(id = request.session['user'])
+    context = {
+        'Song': songs,
+        'user': user
+    }
+    return render(request, "spotifyTemplate/_like.html",context)

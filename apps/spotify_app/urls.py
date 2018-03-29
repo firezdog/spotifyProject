@@ -6,5 +6,5 @@ urlpatterns = [
     url(r'^user',views.user),
     url(r'^tracks/(?P<track_id>.[^/]+)/like$', views.likedsongs),
     url(r'^tracks/(?P<track_id>.[^/]+)/$', views.showTrack),
-    url(r'^tracks/like$',views.likebutton)
+    url(r'^/(?P<track_id>.[^/]+)/likebutton$',views.likebutton)
 ]
