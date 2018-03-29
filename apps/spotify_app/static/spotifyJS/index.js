@@ -9,16 +9,18 @@ $(document).ready(function(){
                 var item = res.tracks            
                 $.get(`https://api.napster.com/v2.2/albums/${item[i]['albumId']}/images?apikey=${key}`).done(function(imageRes) {
                     console.log(imageRes)
-                    let htmlString = ""
-                    htmlString+="<div class='column'>"
-                    htmlString+=`<div class='ui center aligned segment'><a href="/spotify/tracks/${item[i].id}"><img src=${imageRes.images[0].url}></a></div>`
-                    htmlString+="<div class='item'>Name: " + item[i]['name'] + '</div>'
-                    htmlString+="<div class='item'>Album: " + item[i]['albumName'] + '</div>'
-                    htmlString+="<div class='item'>Artist: " + item[i]['artistName'] + ' </div>'
-                    htmlString+=`<a href='/spotify/tracks/${item[i].id}/like'><button class='ui inverted button'>Like</button></a></div>`
-                    htmlString+="</div>"    
-                    console.log(`#genre${index}`)
-                    $(`#genre${index}`).append(htmlString);
+                    $.get(`/tracks/${item[i].id}/likedbutton`).done(function(likebutton){
+                        let htmlString = ""
+                        htmlString+="<div class='column'>"
+                        htmlString+=`<div class='ui center aligned segment'><a href="/spotify/tracks/${item[i].id}"><img src=${imageRes.images[0].url}></a></div>`
+                        htmlString+="<div class='item'>Name: " + item[i]['name'] + '</div>'
+                        htmlString+="<div class='item'>Album: " + item[i]['albumName'] + '</div>'
+                        htmlString+="<div class='item'>Artist: " + item[i]['artistName'] + ' </div>'
+                        htmlString+= likebutton
+                        htmlString+="</div>"    
+                        console.log(`#genre${index}`)
+                        $(`#genre${index}`).append(htmlString);
+                    })
                 });
             }
         });

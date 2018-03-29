@@ -45,12 +45,13 @@ def likedsongs(request, track_id):
     songs.liked_others.add(users)
     songs.save()
     return redirect('/spotify')
-def likebutton(request):
-    if request.method == 'post':
-        songs = Songs.objects.all()
-        context = {
-            'Song': songs
-        }
+def likebutton(request, track_id):
+    songs = Songs.objects.get(id = track_id)
+    user = User.objects.get(id = request.session['user'])
+    context = {
+        'Song': songs,
+        'user': user
+    }
         return render(request, "spotifyTemplate/_like.html",context)
     else:
         return redirect('/spotify')
