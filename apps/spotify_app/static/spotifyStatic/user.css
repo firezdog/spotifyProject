@@ -1,15 +1,32 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
     background-color: #181818
 }
+
 .item {
     color: white
 }
+
 h1 {
-    color: whitesmoke
+    color: whitesmoke;
+    padding: 20px;
+    border-bottom: 1px solid grey;
+    font-size: 40px;
 }
+
+.ui.secondary.menu {
+    padding: 20px;
+}
+
 .ui.secondary.menu p {
-    color: white
+    padding: 2px;
+    color: whitesmoke;
+    border-bottom: 2px solid rgb(70, 70, 70);
 }
 .ui.secondary.menu img {
-    margin-left: 337px;
+    margin-left: 387px;
+    width: 300px;
 }
