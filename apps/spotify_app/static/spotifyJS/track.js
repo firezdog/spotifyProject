@@ -17,7 +17,7 @@ $(document).ready(function() {
                     console.log(ArtistImage)
                     let str = ''
                     str+="<div class='column'>"
-                    str+=`<div class='ui center aligned segment'><a href=''><img src=${ArtistImage.images[2].url}></a></div>`
+                    str +=`<div class='ui center aligned segment'><a href='/spotify/${track.tracks[0].artistId}/artist'><img src=${ArtistImage.images[2].url}></a></div>`
                     str+="<div class='item'>" + similar.artists[i].name + '</div>'
                     str += "</div>"
                     $("#similar-artists").append(str)
