@@ -1,15 +1,68 @@
+* {
+    /* override Semantic UI */
+    font-family: 'Montserrat', sans-serif !important;
+}
+
 body {
     background-color: #181818
 }
 .item {
-    color: white
+    color: white;
 }
 h1 {
+    color: whitesmoke;
+    padding: 20px;
+    border-bottom: 1px solid grey;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+h2 {
     color: whitesmoke
 }
+.ui.inverted.green.button {
+    margin-top: 10px;
+    align-content: center;
+}
+
+.ui.secondary.menu {
+    padding: 20px;
+}
+
 .ui.secondary.menu p {
-    color: white
+    color: whitesmoke;
+    border-bottom: 2px solid rgb(70, 70, 70);
+    padding: 2px;
 }
 .ui.secondary.menu img {
-    margin-left: 337px;
+
+    margin-left: 387px;
+    width: 300px;
+}
+
+.ui.five.column.grid {
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(65, 65, 65);
+}
+
+.genres {
+    align-content: center;
+    padding-left: 40px;
+    padding-right: 10px;
+}
+
+.genres h1 {
+    padding: 10px;
+}
+
+.ui.search {
+    margin-left: 240px;
+}
+
+.prompt {
+    width: 200px;
+}
+
+.track_data {
+    height: 100px;
 }

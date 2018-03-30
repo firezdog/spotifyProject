@@ -40,24 +40,25 @@ $(document).ready(function(){
             }
         }
     });
+    console.log(song)
     for (let index=0; index<genres.length; index++) {
         $.get(`http://api.napster.com/v2.2/genres/${genres[index]}/tracks/top?apikey=${key}&limit=5`).done(function(res) {
             for(let i=0; i < res.tracks.length; i++){
                 var item = res.tracks            
                 $.get(`https://api.napster.com/v2.2/albums/${item[i]['albumId']}/images?apikey=${key}`).done(function(imageRes) {
-                    console.log(imageRes)
-                    // $.get(`/tracks/${item[i].id}/likedbutton`).done(function(likebutton){
+                    $.get(`/spotify/tracks/index/${item[i].id}/likebutton`).done(function(likebutton){
                         let htmlString = ""
                         htmlString+="<div class='column'>"
                         htmlString+=`<div class='ui center aligned segment'><a href="/spotify/tracks/${item[i].id}"><img src=${imageRes.images[0].url}></a></div>`
+                        htmlString+="<div class='track_data'>"
                         htmlString+="<div class='item'>Name: " + item[i]['name'] + '</div>'
                         htmlString+="<div class='item'>Album: " + item[i]['albumName'] + '</div>'
                         htmlString+="<div class='item'>Artist: " + item[i]['artistName'] + ' </div>'
-                        // htmlString+= likebutton
-                        htmlString+="</div>"    
-                        console.log(`#genre${index}`)
+                        htmlString+="</div>"
+                        htmlString+= likebutton
+                        htmlString+="</div>"
                         $(`#genre${index}`).append(htmlString);
-                    // })
+                    })
                 });
             }
         });
