@@ -18,9 +18,12 @@ h1 {
 h2 {
     color: whitesmoke
 }
+.ui.inverted.green.button {
+    margin-top: 10px;
+    align-content: center;
+}
 
 .ui.secondary.menu {
-    align-content: center;
     padding: 20px;
 }
 
