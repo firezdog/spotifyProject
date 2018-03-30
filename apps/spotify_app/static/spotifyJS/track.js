@@ -58,10 +58,10 @@ $(document).ready(function() {
         $.get(`http://api.napster.com/v2.2/artists/${track.tracks[0].artistId}/similar?apikey=${key}` , function(similar){
             for(let i=0; i < 25; i++){
                 $.get(`${similar.artists[i].links.images.href}?apikey=${key}`, function(ArtistImage){
-                    console.log(ArtistImage)
+                    console.log(similar)
                     let str = ''
                     str+="<div class='column'>"
-                    str +=`<div class='ui center aligned segment'><a href='/spotify/${track.tracks[0].artistId}/artist'><img src=${ArtistImage.images[2].url}></a></div>`
+                    str +=`<div class='ui center aligned segment'><a href='/spotify/${similar.artists[i].id}/artist'><img src=${ArtistImage.images[2].url}></a></div>`
                     str+="<div class='item'>" + similar.artists[i].name + '</div>'
                     str += "</div>"
                     $("#similar-artists").append(str)
