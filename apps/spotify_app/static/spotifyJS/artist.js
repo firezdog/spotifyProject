@@ -45,10 +45,14 @@ $(document).ready(function () {
             $.get(`${similar.artists[0].links.images.href}?apikey=${key}`, function (ArtistImage) {
                 console.log(ArtistImage);
                 console.log(similar.artists[0].name);
+                let blurbString = ""
+                blurbString = `${similar.artists[0].blurbs}`
+                console.log(blurbString)
                 let htmlString = ""
                 htmlString += `<div><img src='${ArtistImage.images[0].url}'></div>`
                 htmlString += `<div>${similar.artists[0].name}</div>`
                 $('#artistProfile').append(htmlString)
+                $('#bio').append(blurbString)
                 $.get(`http://api.napster.com/v2.2/artists/${artist_id}/tracks/top?apikey=${key}&limit=10`).done(function(top){
                     console.log(top)
                     let otherString = ""
