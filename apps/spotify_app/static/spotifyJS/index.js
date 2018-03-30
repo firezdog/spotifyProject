@@ -50,9 +50,11 @@ $(document).ready(function(){
                         let htmlString = ""
                         htmlString+="<div class='column'>"
                         htmlString+=`<div class='ui center aligned segment'><a href="/spotify/tracks/${item[i].id}"><img src=${imageRes.images[0].url}></a></div>`
+                        htmlString+="<div class='track_data'>"
                         htmlString+="<div class='item'>Name: " + item[i]['name'] + '</div>'
                         htmlString+="<div class='item'>Album: " + item[i]['albumName'] + '</div>'
                         htmlString+="<div class='item'>Artist: " + item[i]['artistName'] + ' </div>'
+                        htmlString+="</div>"
                         htmlString+= likebutton
                         htmlString+="</div>"
                         $(`#genre${index}`).append(htmlString);
