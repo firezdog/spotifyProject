@@ -13,3 +13,13 @@ h1 {
 .ui.secondary.menu img {
     margin-left: 337px;
 }
+#likedprofiles {
+    display: inline-block
+}
+#likedsongs {
+    display: inline-block
+}
+.ui.card{
+    display: inline-block;
+    vertical-align: top;
+}
