@@ -1,5 +1,13 @@
+body {
+    background-color: #181818
+}
+.item {
+    /* override Semantic UI */
+    background-color: #181818 !important
+}
+
 #logo {
-    width: 200px;
+    width: 300px;
 }
 
 .column {

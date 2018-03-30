@@ -1,0 +1,16 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #181818;
+}
+
+.ui.secondary.menu p {
+    color: white;
+}
+
+.ui.secondary.menu img {
+    margin-left: 337px;
+}
+
