@@ -1,5 +1,5 @@
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -43,4 +43,8 @@ h1 {
 .ui.card{
     display: inline-block;
     vertical-align: top;
+}
+
+.prompt {
+    width: 200px;
 }

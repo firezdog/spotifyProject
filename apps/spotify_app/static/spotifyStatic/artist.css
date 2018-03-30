@@ -1,3 +1,7 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
     background-color: #181818;
 }
@@ -9,3 +13,4 @@ body {
 .ui.secondary.menu img {
     margin-left: 337px;
 }
+

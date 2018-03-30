@@ -1,6 +1,6 @@
 * {
     /* override Semantic UI */
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 body {
@@ -59,4 +59,7 @@ h1 {
 .ui.five.column.grid {
     border-top: 1px solid grey;
     margin-top: 5px;
+}
+.prompt {
+    width: 200px;
 }

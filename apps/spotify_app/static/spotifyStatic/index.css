@@ -1,5 +1,6 @@
 * {
-    font-family: 'Poppins', sans-serif;
+    /* override Semantic UI */
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 body {
@@ -13,7 +14,7 @@ h1 {
     padding: 20px;
     border-bottom: 1px solid grey;
     font-size: 40px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 h2 {
     color: whitesmoke
@@ -54,6 +55,14 @@ h2 {
     padding: 10px;
 }
 
-.search {
+.ui.search {
     margin-left: 240px;
+}
+
+.prompt {
+    width: 200px;
+}
+
+.track_data {
+    height: 100px;
 }
