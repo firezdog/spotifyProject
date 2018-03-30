@@ -16,7 +16,9 @@ $(document).ready(function () {
                     console.log(top)
                     let otherString = ""
                     for(var i= 0; i < top.tracks.length; i++){
-                        otherString += `<div><a href='/spotify/tracks/${top.tracks[i].id}/'>${top.tracks[i].name}</a></div>`
+                        otherString += "<div class='artist_data'>"
+                        otherString += `<div><a class='track_names' href='/spotify/tracks/${top.tracks[i].id}/'>${top.tracks[i].name}</a></div>`
+                        otherString += "</div>"
                     }
                     $('#topTracks').append(otherString)
                     console.log(otherString)
