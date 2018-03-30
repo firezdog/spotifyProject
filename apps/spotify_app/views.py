@@ -69,4 +69,13 @@ def likebutton(request,route,track_id):
         'route': route
     }
     return render(request, "spotifyTemplate/_like.html",context)
+
+def artist(request,artistid):
     
+    user = User.objects.get(id=request.session['user'])
+
+    context = {
+        "Username" : user,
+        "artist_id" : artistid
+    }
+    return render(request,"spotifyTemplate/artist.html", context)
