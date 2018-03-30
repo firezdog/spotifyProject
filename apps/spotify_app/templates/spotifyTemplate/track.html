@@ -11,6 +11,7 @@
         crossorigin="anonymous"></script>
     <script src="{% static 'spotifyJS/track.js' %}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js'></script>
     <link rel="stylesheet" href="{% static 'spotifyStatic/track.css' %}">
 </head>
 
@@ -24,9 +25,16 @@
             <p>{{person.name}}</p>
         </a>
         <img src="{% static 'logos/Spotify_Logo_RGB_Green.png' %}">
-        <div class="right menu">
-            <div class="item">
+        <div class="item">
+                <div id="#search" class="ui search">
+                <div class="ui icon input">
+                    <input class="prompt" type="text" placeholder="Search songs...">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+                </div>
             </div>
+        <div class="right menu">
             <a href="/spotify/logout" class="ui item">
                 <p>Logout</p>
             </a>
@@ -44,9 +52,11 @@
         </audio>
     </div>
     <div class="ui center aligned text container">
-        <h1>Related Artists</h1>
-        <div class="ui five column grid" id="similar-artists"></div>
+    <div id='likebutton'>
+
     </div>
+    <h1>Related Artists</h1>
+    <div class="ui five column grid" id="similar-artists"></div>
 </div>
 </body>
 

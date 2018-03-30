@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var song = $('data').val();
+    var user = $('#user').val();
     var genres = ['g.21', 'g.5', 'g.394', 'g.156', 'g.146']
     var key = 'NjY4YzkwMWUtNGIzMS00ZGZmLWE2NGQtMTJhNWI5MTFhYzhk'
     $('.ui.search').search({
@@ -39,26 +40,26 @@ $(document).ready(function(){
             return response;
             }
         }
-    });
+    })
     console.log(song)
-    for (let index=0; index<genres.length; index++) {
-        $.get(`http://api.napster.com/v2.2/genres/${genres[index]}/tracks/top?apikey=${key}&limit=5`).done(function(res) {
-            for(let i=0; i < res.tracks.length; i++){
-                var item = res.tracks            
-                $.get(`https://api.napster.com/v2.2/albums/${item[i]['albumId']}/images?apikey=${key}`).done(function(imageRes) {
-                    $.get(`/spotify/tracks/index/${item[i].id}/likebutton`).done(function(likebutton){
-                        let htmlString = ""
-                        htmlString+="<div class='column'>"
-                        htmlString+=`<div class='ui center aligned segment'><a href="/spotify/tracks/${item[i].id}"><img src=${imageRes.images[0].url}></a></div>`
-                        htmlString+="<div class='item'>Name: " + item[i]['name'] + '</div>'
-                        htmlString+="<div class='item'>Album: " + item[i]['albumName'] + '</div>'
-                        htmlString+="<div class='item'>Artist: " + item[i]['artistName'] + ' </div>'
-                        htmlString+= likebutton
-                        htmlString+="</div>"
-                        $(`#genre${index}`).append(htmlString);
-                    })
-                });
-            }
-        });
-    }       
-})
+    var test = song.split(' ',)
+    console.log(test)
+    console.log(typeof(song))
+    for(let i=0; i < test.length; i++) {
+        $.get(`http://api.napster.com/v2.2/tracks/${test[i]}?apikey=${key}`).done(function(info){
+            $.get(`https://api.napster.com/v2.2/albums/${info.tracks[0].albumId}/images?apikey=${key}`).done(function(album){
+                let htmlString = ""
+                if( user.id == song.liked_others){
+                    htmlString += '<div id=likedprofiles>'
+                    htmlString += `<div class='column'><div class='ui center aligned segment'>`
+                    htmlString += `<div class='image'><a href='/spotify/tracks/${test[i]}/'><img src=${album.images[0].url}></a></div>`
+                    htmlString += `<div class='content'><div class='header'>${info.tracks[0].artistName}</div>`
+                    htmlString += `<div ='header'>${info.tracks[0].name}</div>`
+                    htmlString += `<div ='header'>${info.tracks[0].albumName}</div>`
+                    htmlString += '</div></div></div>'
+                }
+                $('#likedsongs').append(htmlString)
+        })
+    })
+    }
+}) 

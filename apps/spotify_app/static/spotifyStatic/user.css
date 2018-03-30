@@ -30,3 +30,13 @@ h1 {
     margin-left: 387px;
     width: 300px;
 }
+#likedprofiles {
+    display: inline-block
+}
+#likedsongs {
+    display: inline-block
+}
+.ui.card{
+    display: inline-block;
+    vertical-align: top;
+}

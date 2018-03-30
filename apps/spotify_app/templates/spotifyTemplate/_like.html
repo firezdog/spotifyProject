@@ -1,2 +1,3 @@
-<!-- {% if not request.session.user in songs.liked_others %}
-<a href="/spotify/{{songs.song}}/" -->
+{% if not Song in user.otherlikedsongs.all %}
+<a  class="ui inverted green button" href='/spotify/tracks/{{route}}/{{Song.song}}/like'>Add</a>
+{% endif %}
